@@ -7,6 +7,7 @@ import { Home } from "./pages/Home"
 import { Product } from "./pages/Product"
 import { Singleproduct } from "./pages/SingleProduct"
 import "./App.css"
+import { Cart } from "./pages/Cart"
 
 const router = createBrowserRouter([
 
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
         path: "singleproduct/:id",
         element: <Singleproduct/>
       },
+      {
+        path: "cart",
+        element: <Cart/>
+      },
+
       
    
     ]
