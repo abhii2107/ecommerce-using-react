@@ -205,31 +205,19 @@ header {
   gap: 1.4rem;
 }
 
-/* heading */
-.heading-xl {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.15;
-  color: #0f172a;
-}
 
-/* paragraph */
-.paragraph {
-  font-size: 1.05rem;
-  color: #475569;
-  max-width: 520px;
-  line-height: 1.7;
-}
+
 
 /* button */
 .hero-content .btn {
+  color: #e5e7eb;
   margin-top: 1.2rem;
   width: fit-content;
   padding: 0.8rem 2.2rem;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  background-color: #475569;
+  background-color: #0f172a;
 }
 
 /* image side */
@@ -266,5 +254,96 @@ header {
   .banner-image {
     margin-top: 2.5rem;
     max-width: 420px;
+  }
+}
+
+/* =============================
+   HERO TEXT ADVANCED STYLING
+============================= */
+
+.heading-xl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+/* small welcome text */
+.welcome-text {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f97316;
+}
+
+/* big brand name */
+.brand-text {
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+/* gradient touch */
+.brand-text span {
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* paragraph improved */
+.paragraph {
+  font-size: 1.05rem;
+  color: #475569;
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+/* =============================
+   BUTTON PREMIUM LOOK
+============================= */
+
+.hero-content .btn {
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.6rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  font-weight: 600;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.25);
+}
+
+.hero-content .btn:hover {
+  transform: translateY(-3px);
+  background: #020617;
+}
+
+/* =============================
+   IMAGE POLISH
+============================= */
+
+.banner-image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================
+   MOBILE RESPONSIVE
+============================= */
+
+@media screen and (max-width: 998px) {
+  .brand-text {
+    font-size: 2.5rem;
+  }
+
+  .welcome-text {
+    font-size: 0.85rem;
   }
 }

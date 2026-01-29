@@ -1,3 +1,17 @@
+import { HeroSection } from "../components/HeroSection"
+
 export const About = () => {
-    return <h1>About</h1>
+
+
+    const data = {
+        name: "XYZ E-Commmerce",
+    }
+
+
+    return(
+        <>
+            <HeroSection myData = {data}/>
+        
+        </>
+    )
 }
