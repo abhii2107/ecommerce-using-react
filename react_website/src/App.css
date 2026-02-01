@@ -824,3 +824,135 @@ footer h3 {
   }
 }
 
+/*------------------------------
+ ERROR PAGE STYLING
+---------------------------- */
+
+.error-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #0f172a;
+  padding: 2rem 1rem;
+}
+
+#error-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 600px;
+}
+
+#error-text figure {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+  animation: slideUp 0.6s ease;
+}
+
+#error-text figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+.text-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn 0.8s ease 0.2s both;
+}
+
+.text-center .p-a {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.text-center .p-b {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.error-section .btn {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #ffffff;
+  padding: 0.95rem 3rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+  margin-top: 2rem;
+  animation: slideUp 0.6s ease 0.4s both;
+}
+
+.error-section .btn:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #020617, #0f172a);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+}
+
+.error-section .btn:active {
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .error-section {
+    padding: 2rem 1.5rem;
+  }
+
+  #error-text figure {
+    max-width: 300px;
+  }
+
+  .text-center .p-a {
+    font-size: 1.1rem;
+  }
+
+  .text-center .p-b {
+    font-size: 0.9rem;
+  }
+
+  .error-section .btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 0.95rem;
+  }
+}
