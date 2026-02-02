@@ -1,8 +1,10 @@
+import { useContext } from "react"
 import { HeroSection } from "../components/HeroSection"
+import { AppContext, useProductContext } from "../context/ProductContext"
 
 export const About = () => {
 
-
+    const {myName} = useProductContext()
     const data = {
         name: "XYZ E-Commmerce",
     }
@@ -10,6 +12,7 @@ export const About = () => {
 
     return(
         <>
+            {myName}
             <HeroSection myData = {data}/>
         
         </>
