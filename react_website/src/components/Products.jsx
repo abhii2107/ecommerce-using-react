@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import { FormatPrice } from "../Helpers/FormatPrice"
 
 export const Products = ({ id, title, image, price, category }) => {
     return (
@@ -10,7 +11,7 @@ export const Products = ({ id, title, image, price, category }) => {
                 <div className="card-data">
                     <div className="card-data-flex">
                         <h3>{title}</h3>
-                        <p className="card-data--price">${price}</p>
+                        <p className="card-data--price">${<FormatPrice price = {price}/>}</p>
                     </div>
                 </div>
             </figure>
