@@ -1,5 +1,6 @@
 import axios from "axios"
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { ProductReducer } from "../reducer/ProductReducer";
 
 //create context
 
@@ -17,25 +18,23 @@ const intialState = {
 
 export const AppProvider = ({ children }) => {
 
-    const [state, dispatch] = useReducer(reducer, intialState);
+    const [state, dispatch] = useReducer(ProductReducer, intialState);
 
     const getProducts = async (url) => {
-        dispatch({type:"SET_LOADING"});
+        dispatch({ type: "SET_LOADING" });
         try {
             const res = await axios.get(url);
-
-            const products = await res.data.products;
-
-            products = products.map((item,i) => {
-                return{
+            let products = res.data;
+            const updated = products.map((item, i) => {
+                return {
                     ...item,
-                    featuerd:i<6
-                }
-            })
+                    featured: i < 6,
+                };
+            });
 
-            dispatch({ type: "SET_API_DATA", payload: products })
+            dispatch({ type: "SET_API_DATA", payload: updated });
         } catch (error) {
-            dispatch({type:"API_ERROR"});
+            dispatch({ type: "API_ERROR" });
         }
 
     }
@@ -51,7 +50,7 @@ export const AppProvider = ({ children }) => {
     )
 }
 
-//custom hooks
+//custom hooks to use the data of Appcontext
 export const useProductContext = () => {
     return useContext(AppContext);
 }; 

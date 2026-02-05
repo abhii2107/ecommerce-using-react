@@ -434,6 +434,123 @@ header {
 }
 
 /* =============================
+   PRODUCTS / FEATURED PRODUCTS
+============================= */
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.intro-data {
+  font-size: 0.95rem;
+  color: #f97316;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.common-heading {
+  font-size: 1.6rem;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 1.6rem;
+}
+
+/* Product card inside grid */
+.grid .card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.4rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grid .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+.grid .card figure {
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+.grid .card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.caption {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255,255,255,0.95);
+  color: #64748b;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+
+.card-data {
+  margin-top: 0.8rem;
+}
+
+.card-data-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-data-flex h3 {
+  font-size: 0.95rem;
+  color: #0f172a;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.card-data--price {
+  color: #f97316;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 998px) {
+  .grid .card img {
+    height: 180px;
+  }
+
+  .caption {
+    top: 10px;
+    left: 10px;
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ensure consistent small screens */
+@media (max-width: 600px) {
+  .grid .card img {
+    height: 160px;
+  }
+
+  .common-heading {
+    font-size: 1.3rem;
+  }
+}
+
+/* =============================
    TRUSTED SECTION
 ============================= */
 
