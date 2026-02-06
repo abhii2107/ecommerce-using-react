@@ -5,7 +5,7 @@ import { Contact } from "./pages/Contact"
 import { About } from "./pages/About"
 import { Home } from "./pages/Home"
 import { Product } from "./pages/Product"
-import { Singleproduct } from "./pages/SingleProduct"
+import { SingleProduct } from "./pages/SingleProduct"
 import "./App.css"
 import { Cart } from "./pages/Cart"
 
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "singleproduct/:id",
-        element: <Singleproduct/>
+        element: <SingleProduct/>
       },
       {
         path: "cart",

@@ -30,7 +30,7 @@ export const FeaturedProd = () => {
                                 <p>No featured products found.</p>
                             )
                         }
-                    </div>"
+                    </div>
                 </div>
             </div>
 

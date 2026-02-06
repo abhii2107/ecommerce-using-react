@@ -5,12 +5,15 @@ import { ProductReducer } from "../reducer/ProductReducer";
 //create context
 
 export const AppContext = createContext();
-const Api = "https://fakestoreapi.com/products"
+const Api = "https://dummyjson.com/products"
 const intialState = {
     isLoading: false,
     isError: false,
     products: [],
     featureProducts: [],
+    isSingleLoading: false,
+    singleProduct: {},
+
 }
 
 
@@ -24,7 +27,7 @@ export const AppProvider = ({ children }) => {
         dispatch({ type: "SET_LOADING" });
         try {
             const res = await axios.get(url);
-            let products = res.data;
+            let products = res.data.products;
             const updated = products.map((item, i) => {
                 return {
                     ...item,
@@ -39,12 +42,23 @@ export const AppProvider = ({ children }) => {
 
     }
 
+    const getSingleProduct = async (url) => {
+        dispatch({ type: "SET_SINGLE_LOADING" });
+        try {
+            const res = await axios.get(url);
+            const singleProduct = res.data;
+            dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
+        } catch (error) {
+            dispatch({ type: "SET_SINGLE_ERROR" });
+        }
+    }
+
     useEffect(() => {
         getProducts(Api);
     }, [])
 
 
-    return (<AppContext.Provider value={{ ...state }}>
+    return (<AppContext.Provider value={{ ...state,getProducts,getSingleProduct }}>
         {children}
     </AppContext.Provider>
     )
