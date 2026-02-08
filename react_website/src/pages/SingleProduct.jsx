@@ -7,6 +7,7 @@ import { FormatPrice } from "../Helpers/FormatPrice";
 import { FaTruck } from "react-icons/fa";
 import { MdOutlineAssignmentReturn } from "react-icons/md";
 import { RiShieldCheckLine } from "react-icons/ri";
+import { Stars } from "../components/Stars";
 
 
 
@@ -75,7 +76,7 @@ export const SingleProduct = () => {
 
                         <p><strong>Brand:</strong> {brand}</p>
                         <p><strong>Category:</strong> {category}</p>
-
+                        <Stars stars = {rating}/>
                         <p><strong>Rating:</strong> {rating} / 5</p>
 
                         <p><strong>Availability:</strong> {stock > 0 ? `${stock} in stock` : 'Out of stock'}</p>

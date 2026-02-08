@@ -1488,3 +1488,20 @@ footer h3 {
     min-height: 70px;
   }
 }
+
+/* ===== STARS ===== */
+.icon-style {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.icon-style .icon {
+  font-size: 1rem;
+  color: #f97316;
+}
+
+.icon-style .icons {
+  font-size: 1rem;
+  color: #f97316;
+}
