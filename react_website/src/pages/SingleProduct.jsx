@@ -8,6 +8,7 @@ import { FaTruck } from "react-icons/fa";
 import { MdOutlineAssignmentReturn } from "react-icons/md";
 import { RiShieldCheckLine } from "react-icons/ri";
 import { Stars } from "../components/Stars";
+import { AddToCart } from "../components/AddToCart";
 
 
 
@@ -96,7 +97,7 @@ export const SingleProduct = () => {
                                {warrantyInformation && <p><RiShieldCheckLine className="warranty-icon" /><strong>Warranty:</strong> {warrantyInformation}</p>}
                             </div>
                         </div>
-                        <button className="btn">Add to Cart</button>
+                        {stock > 0 && <AddToCart product = {singleProduct}/>}
                     </div>
 
                 </div>
