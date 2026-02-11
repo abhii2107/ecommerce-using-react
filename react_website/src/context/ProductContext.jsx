@@ -9,7 +9,7 @@ const Api = "https://dummyjson.com/products"
 const intialState = {
     isLoading: false,
     isError: false,
-    products: [],
+    products: [], // i want that this products variable in the filterContext we can get this by useProductContext hook
     featureProducts: [],
     isSingleLoading: false,
     singleProduct: {},
