@@ -6,7 +6,11 @@
                 filter_products:[...action.payload],// ... means instead of using original data i am using copy
                 all_products: [...action.payload],
             }
-            
+        case "SET_GRIDVIEW":
+             return{
+                ...state,
+                grid_view: true,
+             }   
     
         default:
             break;

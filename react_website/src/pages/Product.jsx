@@ -6,8 +6,8 @@ import { ProductList } from "../components/ProductList";
 import { useFilterContext } from "../context/FilterContext";
 
 export const Product = () => {
- const {filter_products} = useFilterContext();
- console.log(filter_products);
+ 
+ 
 
     return (
         <div className="productpage ">
