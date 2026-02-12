@@ -17,7 +17,11 @@ export const FilterContextProvider = ({ children }) => {
 
     // to set the grid view
     const setGridView = () => {
-        return dispatch({type:"SET_GRIDVIEW"})
+        return dispatch({type:"SET_GRID_VIEW"})
+    }
+        // to set the List view
+    const setListView = () => {
+        return dispatch({type:"SET_LIST_VIEW"})
     }
 
     useEffect(() => {
