@@ -1,5 +1,15 @@
 {
+  "name": "ecommerce-using-react",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "cd react_website && bun run dev",
+    "build": "cd react_website && bun run build",
+    "start": "cd react_website && bun run dev",
+    "install:website": "cd react_website && bun install"
+  },
   "dependencies": {
-    "axios": "^1.13.4"
+    "axios": "^1.13.5"
   }
 }
