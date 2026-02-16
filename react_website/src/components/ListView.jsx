@@ -7,12 +7,12 @@ export const ListView = ({ products }) => {
       <div className="container grid">
         {
           products.map((currElem) => {
-            const { id, title, image, price, description } = currElem;
+            const { id, title, thumbnail, price, description } = currElem;
 
             return (
               <div className="card grid grid-two-column" key={id}>
                 <figure>
-                  <img src={image} alt={title} />
+                  <img src={thumbnail} alt={title} />
                 </figure>
 
                 <div className="card-data">
