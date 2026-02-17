@@ -1,7 +1,8 @@
 import { useFilterContext } from "../context/FilterContext"
+import { FormatPrice } from "../Helpers/FormatPrice";
 
 export const FilterSection = () => {
-    const { filters: { text, category, brand },
+    const { filters: { text, category, brand, price, maxPrice, minPrice },
         updateFilterValue,
         all_products,
     } = useFilterContext();
@@ -63,6 +64,15 @@ export const FilterSection = () => {
                         }
                     </select>
                 </form>
+            </div>
+
+            <div className="filter_price">
+                <h3>Price</h3>
+                <p>
+                    <FormatPrice price={price}/>
+                </p>
+
+                <input type="range" name="price" title="price" min={minPrice} max={maxPrice} value={price} onChange={updateFilterValue} />
             </div>
         </>
     )

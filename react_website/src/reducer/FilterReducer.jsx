@@ -3,10 +3,20 @@ import { ListView } from "../components/ListView";
 const FilterReducer = (state, action) => {
     switch (action.type) {
         case "LOAD_FILTER_PRODUCTS":
+            // compute price bounds for range filter
+            const prices = action.payload.map((p) => p.price);
+            const maxPrice = Math.max(...prices);
+            const minPrice = Math.min(...prices);
             return {
                 ...state,
                 filter_products: [...action.payload],// ... means instead of using original data i am using copy
                 all_products: [...action.payload],
+                filters: {
+                    ...state.filters,
+                    maxPrice,
+                    minPrice,
+                    price: maxPrice,
+                },
             }
         case "SET_GRID_VIEW":
             return {
@@ -60,20 +70,24 @@ const FilterReducer = (state, action) => {
             }
         
         case "UPDATE_FILTERS_VALUE":
-            const{name,value} = action.payload;
+            const { name, value: rawValue } = action.payload;
+            let value = rawValue;
+            if (name === "price") {
+                value = Number(rawValue);
+            }
 
-            return{
+            return {
                 ...state,
-                filters:{
+                filters: {
                     ...state.filters,
-                    [name] : value,   
-                }
+                    [name]: value,
+                },
             }
         
         case "FILTER_PRODUCTS":
             let{all_products} = state;
             let tempFilterProduct = [...all_products];
-            const {text, brand, category} = state.filters;
+            const {text, brand, category, price} = state.filters;
 
             if(text){
                 tempFilterProduct = tempFilterProduct.filter((currElem) => {
@@ -90,6 +104,13 @@ const FilterReducer = (state, action) => {
             if(category && category !== "All"){
                 tempFilterProduct = tempFilterProduct.filter((currElem) => {
                     return currElem.category === category;
+                })
+            }
+
+            if(price){
+                tempFilterProduct = tempFilterProduct.filter((currElem) => {
+                     return   currElem.price <= price;
+
                 })
             }
             
