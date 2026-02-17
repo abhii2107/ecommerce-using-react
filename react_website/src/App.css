@@ -16,6 +16,84 @@ body {
   padding: 0 1.5rem;
 }
 
+/* ===== GRID UTILITIES ===== */
+.grid {
+  display: grid;
+}
+
+.grid-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.grid-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.grid-three-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: stretch;
+  gap: 2rem;
+  margin: 4.5rem 0;
+}
+
+.grid-four-column {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+@media (max-width: 998px) {
+  .grid-two-cols {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .grid-two-column {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .grid-three-column {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+
+  .grid-four-column {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-two-cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .grid-two-column {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .grid-three-column {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .grid-four-column {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 /* ===== HEADER ===== */
 header {
   height: 72px;
@@ -2156,4 +2234,262 @@ footer h3 {
 .icon-style .icons {
   font-size: 1rem;
   color: #f97316;
+}
+
+/* =============================
+   FILTER CATEGORY SECTION
+============================= */
+
+.filter-category {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+}
+
+.filter-category h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1.2rem 0;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.filter-category > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.filter-category button {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
+}
+
+.filter-category button:hover {
+  border-color: #f97316;
+  background: rgba(249, 115, 22, 0.06);
+  color: #f97316;
+  transform: translateX(4px);
+}
+
+.filter-category button:active {
+  transform: translateX(2px);
+}
+
+.filter-category button.active {
+  background: #f97316;
+  border-color: #f97316;
+  color: #ffffff;
+  box-shadow: 0 8px 16px rgba(249, 115, 22, 0.25);
+  font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .filter-category {
+    padding: 1.2rem;
+  }
+
+  .filter-category h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .filter-category button {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .filter-category > div {
+    gap: 0.6rem;
+  }
+}
+
+/* =============================
+   FILTER COMPANY/BRAND SECTION
+============================= */
+
+.filter-company {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+}
+
+.filter-company h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1.2rem 0;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.filter-company form {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-company--select {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1.2em 1.2em;
+  padding-right: 2.5rem;
+}
+
+.filter-company--select:hover {
+  border-color: #f97316;
+  background-color: rgba(249, 115, 22, 0.06);
+}
+
+.filter-company--select:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.filter-company--select option {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 0.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .filter-company {
+    padding: 1.2rem;
+  }
+
+  .filter-company h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .filter-company--select {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.9rem;
+    background-position: right 0.5rem center;
+    padding-right: 2rem;
+  }
+}
+
+/* =============================
+   PRODUCT PAGE LAYOUT
+============================= */
+
+.productpage {
+  padding: 4rem 0;
+  background: #f5f6f8;
+  min-height: 100vh;
+}
+
+.grid-filter-column {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.product-view--sort {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sort-filter {
+  width: 100%;
+}
+
+.main-product {
+  width: 100%;
+}
+
+/* Responsive Product Page */
+@media (max-width: 998px) {
+  .grid-filter-column {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .productpage {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-filter-column {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .productpage {
+    padding: 2rem 0;
+  }
+
+  .product-view--sort {
+    gap: 2rem;
+  }
+}
+
+/* =============================
+   PAGE NAVIGATION BREADCRUMB
+============================= */
+
+.page-navigation {
+  background: #ffffff;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.page-navigation a {
+  color: #f97316;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+  margin-right: 0.8rem;
+}
+
+.page-navigation a:hover {
+  color: #fb923c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .page-navigation {
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-navigation a {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
 }
