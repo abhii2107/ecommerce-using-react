@@ -5,8 +5,28 @@ const FilterReducer = (state, action) => {
         case "LOAD_FILTER_PRODUCTS":
             // compute price bounds for range filter
             const prices = action.payload.map((p) => p.price);
+            // 3rd way
             const maxPrice = Math.max(...prices);
             const minPrice = Math.min(...prices);
+            // get the max price so the max price updated on the price slider
+            let priceArr = action.payload.map((currElem) => currElem.price)
+            console.log(priceArr);
+            // 1st way
+            // console.log(Math.max.apply(null,priceArr))
+
+
+            // ** 2nd way ** // 
+            // let maxprice = priceArr.reduce(
+            //     (initialVal, currElem) => Math.max(initialVal, currElem),
+            //     0
+            // );
+            // console.log(maxprice) 
+
+            // 3rd way
+
+           
+
+
             return {
                 ...state,
                 filter_products: [...action.payload],// ... means instead of using original data i am using copy
@@ -68,7 +88,7 @@ const FilterReducer = (state, action) => {
                 ...state,
                 filter_products: newSortData,
             }
-        
+
         case "UPDATE_FILTERS_VALUE":
             const { name, value: rawValue } = action.payload;
             let value = rawValue;
@@ -83,43 +103,57 @@ const FilterReducer = (state, action) => {
                     [name]: value,
                 },
             }
-        
-        case "FILTER_PRODUCTS":
-            let{all_products} = state;
-            let tempFilterProduct = [...all_products];
-            const {text, brand, category, price} = state.filters;
 
-            if(text){
+        case "FILTER_PRODUCTS":
+            let { all_products } = state;
+            let tempFilterProduct = [...all_products];
+            const { text, brand, category, price } = state.filters;
+
+            if (text) {
                 tempFilterProduct = tempFilterProduct.filter((currElem) => {
                     return currElem.title.toLowerCase().includes(text);
                 })
             }
 
-            if(brand && brand !== "all"){
+            if (brand && brand !== "all") {
                 tempFilterProduct = tempFilterProduct.filter((currElem) => {
-                    return currElem.brand  === brand;
+                    return currElem.brand === brand;
                 })
             }
 
-            if(category && category !== "All"){
+            if (category && category !== "All") {
                 tempFilterProduct = tempFilterProduct.filter((currElem) => {
                     return currElem.category === category;
                 })
             }
 
-            if(price){
+            if (price) {
                 tempFilterProduct = tempFilterProduct.filter((currElem) => {
-                     return   currElem.price <= price;
+                    return currElem.price <= price;
 
                 })
             }
-            
-            return{
+
+            return {
                 ...state,
                 filter_products: tempFilterProduct,
             }
+
+        case "CLEAR_FILTERS":
+            return {
+                ...state,
+                filters: {
+                    ...state.filters,
+                    text: "",
+                    category: "All",
+                    brand: "all",
+                    // keep min/max as-is, reset price to the maxPrice
+                    price: state.filters.maxPrice,
+                },
+            };
+
         default:
-            break;
+            return state;
     }
 }
 

@@ -39,19 +39,24 @@ export const FilterContextProvider = ({ children }) => {
         let sortValue = event.target.value;
         dispatch({ type: "GET_SORT_VALUE", payload: sortValue });
     };
-    //to sort the Products
+    // to update filtered products and then sort them when filters or sorting change
     useEffect(() => {
-        dispatch({type: "SORTING_PRODUCTS"})
-        dispatch({type: "FILTER_PRODUCTS"})
-    },[state.sorting_value , state.filters])
+        dispatch({ type: "FILTER_PRODUCTS" });
+        dispatch({ type: "SORTING_PRODUCTS" });
+    }, [state.sorting_value, state.filters]);
 
 
-    //updte the filtervalues
+    // update the filter values (use `name` first, `title` as fallback)
     const updateFilterValue = (event) => {
-        let name = event.target.title || event.target.name;
+        let name = event.target.name || event.target.title;
         let value = event.target.value;
 
-        return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } })
+        return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } });
+    }
+
+    // to clear the filters
+    const clearFilters = () => {
+        dispatch({type: "CLEAR_FILTERS"})
     }
 
 
@@ -60,7 +65,7 @@ export const FilterContextProvider = ({ children }) => {
         dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products })
     }, [products])
     return (
-        <FilterContext.Provider value={{ ...state, setGridView, setListView, sorting, updateFilterValue }}>
+        <FilterContext.Provider value={{ ...state, setGridView, setListView, sorting, updateFilterValue, clearFilters }}>
             {children}
         </FilterContext.Provider>
     )

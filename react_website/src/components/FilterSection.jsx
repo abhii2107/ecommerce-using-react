@@ -5,6 +5,7 @@ export const FilterSection = () => {
     const { filters: { text, category, brand, price, maxPrice, minPrice },
         updateFilterValue,
         all_products,
+        clearFilters,
     } = useFilterContext();
 
     // to get the unique data of each fields
@@ -73,6 +74,12 @@ export const FilterSection = () => {
                 </p>
 
                 <input type="range" name="price" title="price" min={minPrice} max={maxPrice} value={price} onChange={updateFilterValue} />
+            </div>
+
+            <div className="filter-clear">
+                <button type="button" className="btn" onClick={clearFilters}>
+                    Clear Filters
+                </button>
             </div>
         </>
     )
