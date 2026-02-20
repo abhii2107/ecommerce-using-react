@@ -4,11 +4,15 @@ import './index.css'
 import App from './App.jsx'
 import { AppProvider } from './context/ProductContext.jsx'
 import { FilterContextProvider } from './context/FilterContext.jsx'
+import { CartProvider } from './context/CartContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <AppProvider>
     <FilterContextProvider>
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
+      
     </FilterContextProvider>
 
   </AppProvider>,
