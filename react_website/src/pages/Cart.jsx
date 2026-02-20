@@ -1,3 +1,4 @@
+import { CartItem } from "../components/CartItem";
 import { useCartContext } from "../context/CartContext"
 
 export const Cart = () => {
@@ -16,6 +17,14 @@ export const Cart = () => {
 
                 </div>
                 <hr />
+
+                <div className="cart-item">
+                    {
+                       cart.map((curElem) => {
+                        return <CartItem key={curElem.id} {...curElem}/>
+                       }) 
+                    }
+                </div>
             </div>
         </>
     )

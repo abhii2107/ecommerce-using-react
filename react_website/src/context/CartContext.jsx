@@ -20,9 +20,13 @@ const Cart_context = createContext();
         dispatch({type: "ADD_TO_CART",payload:{id,amount,product}})
     }
 
+    const removeItem = (id) => {
+        dispatch({type: "REMOVE_ITEM",payload:id})
+    }
 
 
-    return <Cart_context.Provider value={{...state,addToCart}}>{children}</Cart_context.Provider>
+
+    return <Cart_context.Provider value={{...state,addToCart,removeItem}}>{children}</Cart_context.Provider>
 }
 
 export const useCartContext = () => {
