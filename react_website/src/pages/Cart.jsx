@@ -1,9 +1,17 @@
 import { CartItem } from "../components/CartItem";
 import { useCartContext } from "../context/CartContext"
+import { NavLink } from "react-router-dom";
 
 export const Cart = () => {
-    const {cart} = useCartContext();
-    console.log(cart)
+    const {cart, clearCart} = useCartContext();
+    
+    if(cart.length === 0){
+        return(
+            <div className="emptydiv">
+                <h3>No Cart Items</h3>
+            </div>
+        )
+    }
 
     return(
         <>
@@ -24,6 +32,13 @@ export const Cart = () => {
                         return <CartItem key={curElem.id} {...curElem}/>
                        }) 
                     }
+                </div>
+                <hr />
+                <div className="cart-two-button">
+                    <NavLink to="/product">
+                        <button className="continue-btn">Continue Shopping</button>
+                    </NavLink>
+                    <button className="clear-btn" onClick={clearCart}>Clear cart</button>
                 </div>
             </div>
         </>

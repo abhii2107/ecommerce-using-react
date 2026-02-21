@@ -37,6 +37,12 @@ const Cart_context = createContext();
         dispatch({type: "REMOVE_ITEM",payload:id})
     }
 
+    // clear the Cart
+    const clearCart = () => {
+        dispatch({type:"CLEAR_CART"});
+    }
+
+
     // to add the data in localstorage
     // get vs set
 
@@ -46,7 +52,7 @@ const Cart_context = createContext();
      // now get the data and add that in the cart
 
 
-    return <Cart_context.Provider value={{...state,addToCart,removeItem}}>{children}</Cart_context.Provider>
+    return <Cart_context.Provider value={{...state,addToCart,removeItem,clearCart}}>{children}</Cart_context.Provider>
 }
 
 export const useCartContext = () => {

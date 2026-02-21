@@ -455,17 +455,121 @@ header::after {
 }
 .remove_icon:hover { transform: scale(1.08); color: var(--accent); }
 
+/* ===== EMPTY CART ===== */
+.emptydiv {
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptydiv h3 {
+  font-size: 1.8rem;
+  color: var(--muted);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.emptydiv::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: var(--accent-glow);
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.4;
+}
+
+/* ===== CART BUTTONS SECTION ===== */
+.cart-two-button {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.continue-btn {
+  flex: 1;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.continue-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 92, 43, 0.3);
+  transform: translateY(-2px);
+}
+
+.continue-btn:active {
+  transform: translateY(0);
+}
+
+.clear-btn {
+  flex: 1;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--red);
+  background: transparent;
+  color: var(--red);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.clear-btn:hover {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
+  transform: translateY(-2px);
+}
+
+.clear-btn:active {
+  transform: translateY(0);
+}
+
 /* Responsive: hide less-important columns on smaller screens */
 @media (max-width: 998px) {
   .grid-five-column { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .cart-image--name figure { width: 52px; height: 52px; }
   .cart_hide { display: none; }
   .cart-item { padding: 0.6rem 0; }
+  .cart-two-button { gap: 1rem; }
+  .continue-btn, .clear-btn { padding: 0.9rem 2rem; font-size: 0.95rem; }
 }
 
 @media (max-width: 600px) {
   .grid-five-column { grid-template-columns: 1fr; gap: 0.8rem; }
   .cart-image--name figure { width: 48px; height: 48px; }
+  .cart_heading { display: none; }
+  .cart-two-button { flex-direction: column; gap: 0.8rem; }
+  .continue-btn, .clear-btn { width: 100%; padding: 1rem 1.5rem; font-size: 0.9rem; }
+  .emptydiv h3 { font-size: 1.4rem; }
 }
 
 .brand-text {
@@ -2386,4 +2490,191 @@ footer h3 {
 @media (max-width: 600px) {
   .GridView .grid-three-column { grid-template-columns: 1fr; }
   .GridView .card figure { height: 160px; }
+}
+/* ===== EMPTY CART ===== */
+.emptydiv {
+  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptydiv h3 {
+  font-size: 1.8rem;
+  color: var(--muted);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.emptydiv::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: var(--accent-glow);
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+/* ===== CART BUTTONS SECTION ===== */
+.cart-two-button {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Continue Shopping Button */
+.continue-btn {
+  flex: 1;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.continue-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 92, 43, 0.3);
+  transform: translateY(-2px);
+}
+
+.continue-btn:active {
+  transform: translateY(0);
+}
+
+/* Clear Cart Button */
+.clear-btn {
+  flex: 1;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--red);
+  background: transparent;
+  color: var(--red);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.clear-btn:hover {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
+  transform: translateY(-2px);
+}
+
+.clear-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE FIX ===== */
+@media (max-width: 998px) {
+  .continue-btn,
+  .clear-btn {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .cart-two-button {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart_heading {
+    display: none;
+  }
+
+  .cart-two-button {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 0 2.5rem;
+  }
+
+  .continue-btn,
+  .clear-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .emptydiv h3 {
+    font-size: 1.35rem;
+    line-height: 1.4;
+  }
+}
+
+/* =========================
+   MOBILE CART FIX (CRITICAL)
+   ========================= */
+
+@media (max-width: 600px) {
+
+  /* ❌ REMOVE THIS IF IT EXISTS */
+  /* .cart_heading { display: none; } */
+
+  /* ✅ Hide only table header row */
+  .cart_heading {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+
+  /* ✅ Ensure cart items remain visible */
+  .cart_item,
+  .cart-item,
+  .cart_row {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    background: var(--card-bg, #fff);
+    margin-bottom: 1rem;
+  }
+
+  /* ✅ Make each cell visible */
+  .cart_item > div,
+  .cart-item > div,
+  .cart_row > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+
 }
