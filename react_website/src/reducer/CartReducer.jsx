@@ -11,7 +11,7 @@ const CartReducer = (state, action) => {
                 if (currElem.id === id) {
                     let newAmount = currElem.amount + amount;
 
-                    if(newAmount > currElem.max){
+                    if (newAmount > currElem.max) {
                         newAmount = currElem.max;
                     }
                     return {
@@ -19,14 +19,14 @@ const CartReducer = (state, action) => {
                         amount: newAmount,
                     }
                 }
-                else{
+                else {
                     return currElem;
                 }
 
             });
             return {
                 ...state,
-                cart : updatedProduct,
+                cart: updatedProduct,
             }
         }
         else {
@@ -50,6 +50,53 @@ const CartReducer = (state, action) => {
         }
 
 
+    }
+
+    // to set the increment and decrement
+    if (action.type === "SET_INCREMENT") {
+        let updatedProduct = state.cart.map((currElem) => {
+            if (currElem.id === action.payload) {
+                let incAmount = currElem.amount + 1;
+``
+                if (incAmount > currElem.max) {
+                    incAmount = currElem.max;
+                }
+
+                return {
+                    ...currElem,
+                    amount: incAmount,
+                }
+            }
+            else{
+                return currElem;
+            }
+
+        })
+        return{
+            ...state,
+            cart:updatedProduct
+        }
+    }
+    if (action.type === "SET_DECREMENT") {
+        let updatedProduct = state.cart.map((currElem) => {
+            if (currElem.id === action.payload) {
+                let decAmount = currElem.amount - 1;
+                if(decAmount < 1){
+                    decAmount = 1;
+                }
+                return {
+                    ...currElem,
+                    amount: decAmount,
+                }
+            }
+            else {
+                return currElem;
+            }
+        })
+        return {
+            ...state,
+            cart: updatedProduct
+        }
     }
 
     if (action.type === "REMOVE_ITEM") {

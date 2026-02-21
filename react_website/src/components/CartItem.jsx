@@ -6,13 +6,13 @@ import { CartAmountToggle } from "./CartAmountToggle";
 import { FaTrash } from "react-icons/fa";
 
 export const CartItem = ({ id, name, image, price, amount }) => {
-    const{removeItem} = useCartContext();
-    const setDecrease = () => {
-        // amount > 1 ? setAmount(amount-1) : setAmount(1);
-    }
-    const setIncrease = () => {
-        // amount < stock ? setAmount(amount+1) : setAmount(stock);
-    }
+    const{removeItem,setIncrease,setDecrease} = useCartContext();
+    // const setDecrease = () => {
+    //     // amount > 1 ? setAmount(amount-1) : setAmount(1);
+    // }
+    // const setIncrease = () => {
+    //     // amount < stock ? setAmount(amount+1) : setAmount(stock);
+    // }
 
     return (
         <>
@@ -38,8 +38,8 @@ export const CartItem = ({ id, name, image, price, amount }) => {
                 <div>
                     <CartAmountToggle
                         amount={amount}
-                        setDecrease={setDecrease}
-                        setIncrease={setIncrease}
+                        setDecrease={() => setDecrease(id)}
+                        setIncrease={() => setIncrease(id)}
                     />
                 </div>
 

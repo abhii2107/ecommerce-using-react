@@ -33,6 +33,15 @@ const Cart_context = createContext();
         dispatch({type: "ADD_TO_CART",payload:{id,amount,product}})
     }
 
+    // increment and decrement the product
+    const setDecrease =(id) => {
+        dispatch({type: "SET_DECREMENT",payload:id})
+    }
+    // increment and decrement the product
+    const setIncrease =(id) => {
+        dispatch({type: "SET_INCREMENT",payload:id})
+    }
+
     const removeItem = (id) => {
         dispatch({type: "REMOVE_ITEM",payload:id})
     }
@@ -52,7 +61,7 @@ const Cart_context = createContext();
      // now get the data and add that in the cart
 
 
-    return <Cart_context.Provider value={{...state,addToCart,removeItem,clearCart}}>{children}</Cart_context.Provider>
+    return <Cart_context.Provider value={{...state,addToCart,removeItem,clearCart,setIncrease,setDecrease}}>{children}</Cart_context.Provider>
 }
 
 export const useCartContext = () => {
