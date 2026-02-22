@@ -56,6 +56,7 @@ const Cart_context = createContext();
     // get vs set
 
      useEffect(() => {
+        dispatch({type:"CART_TOTAL_ITEM"})
         localStorage.setItem("Ecart",JSON.stringify(state.cart))
      },[state.cart])
      // now get the data and add that in the cart

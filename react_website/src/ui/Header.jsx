@@ -3,10 +3,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import { useCartContext } from "../context/CartContext";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-
+  const{total_item} = useCartContext();
   const handleButtontoggle = () => {
     setShowMenu(!showMenu);
   };
@@ -50,7 +51,7 @@ export const Header = () => {
             {/* CART ICON */}
             <NavLink to="/cart" className="cart-icon">
               <FiShoppingBag />
-              <span className="cart-count">10</span>
+              <span className="cart-count">{total_item}</span>
             </NavLink>
 
             {/* HAMBURGER MENU */}
