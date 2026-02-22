@@ -18,7 +18,7 @@ const Cart_context = createContext();
         // cart:[],
         cart : getLocalCartData(),
         total_item:"",
-        total_amount:"",
+        total_price:"",
         shipping_fee : 5000,
     }
 
@@ -57,9 +57,11 @@ const Cart_context = createContext();
 
      useEffect(() => {
         dispatch({type:"CART_TOTAL_ITEM"})
+        dispatch({type: "CART_TOTAL_PRICE"})
         localStorage.setItem("Ecart",JSON.stringify(state.cart))
-     },[state.cart])
-     // now get the data and add that in the cart
+     },[state.cart])// now get the data and add that in the cart
+
+      
 
 
     return <Cart_context.Provider value={{...state,addToCart,removeItem,clearCart,setIncrease,setDecrease}}>{children}</Cart_context.Provider>

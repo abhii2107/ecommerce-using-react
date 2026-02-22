@@ -2638,6 +2638,161 @@ footer h3 {
   }
 }
 
+/* ===================================================
+   ORDER TOTAL SECTION — Cart Summary
+   =================================================== */
+.order-total--amount {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  margin-top: 2.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Decorative top accent */
+.order-total--amount::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.order-total--subdata {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 500px;
+}
+
+/* Individual total row styling */
+.subtotal,
+.shipping_fee,
+.order_total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+.subtotal p,
+.shipping_fee p,
+.order_total p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.subtotal p:first-child,
+.shipping_fee p:first-child,
+.order_total p:first-child {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.subtotal p:last-child,
+.shipping_fee p:last-child {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Order Total (Bold & Accent) */
+.order_total {
+  padding: 1rem 0;
+  border-top: 2px solid var(--border);
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.order_total p:first-child {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.order_total p:last-child {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+/* Responsive: Tablet & Mobile */
+@media (max-width: 998px) {
+  .order-total--amount {
+    padding: 1.8rem;
+    margin-top: 2rem;
+  }
+
+  .order-total--subdata {
+    max-width: 100%;
+  }
+
+  .subtotal,
+  .shipping_fee,
+  .order_total {
+    font-size: 0.95rem;
+  }
+
+  .order_total p:last-child {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .order-total--amount {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .order-total--subdata {
+    gap: 1rem;
+  }
+
+  .subtotal,
+  .shipping_fee,
+  .order_total {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+  }
+
+  .subtotal p:first-child,
+  .shipping_fee p:first-child,
+  .order_total p:first-child {
+    font-size: 0.9rem;
+  }
+
+  .subtotal p:last-child,
+  .shipping_fee p:last-child {
+    font-size: 0.88rem;
+  }
+
+  .order_total {
+    padding: 0.8rem 0;
+    margin-top: 0.6rem;
+    font-size: 1rem;
+  }
+
+  .order_total p:last-child {
+    font-size: 1.1rem;
+  }
+
+  /* Keep total section visible on mobile */
+  .order-total--amount {
+    margin: 1.5rem 0 2rem 0;
+  }
+}
+
 /* =========================
    MOBILE CART FIX (CRITICAL)
    ========================= */
