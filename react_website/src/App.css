@@ -2657,11 +2657,22 @@ footer h3 {
     font-size: 0.9rem;
     padding: 0.4rem 0;
   }
+}
 
-  .subtotal p:first-child,
-  .shipping_fee p:first-child,
-  .order_total p:first-child {
-    font-size: 0.9rem;
+/* =========================
+   MOBILE CART FIX (CRITICAL)
+   ========================= */
+
+@media (max-width: 600px) {
+
+  /* ❌ REMOVE THIS IF IT EXISTS */
+  /* .cart_heading { display: none; } */
+
+  /* ✅ Hide only table header row */
+  .cart_heading {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
   }
 
   .subtotal p:last-child,
